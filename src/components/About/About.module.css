@@ -1,0 +1,136 @@
+.aboutUsSection {
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    overflow: hidden;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .content {
+    flex: 1;
+    min-width: 300px;
+    animation: fadeInLeft 1s ease forwards;
+  }
+  
+  .imageWrapper {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    animation: fadeInRight 1s ease forwards;
+  }
+  
+  .image {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .image:hover {
+    transform: scale(1.05);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #2c4964;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  
+  .subtitle {
+    font-size: 1.3rem;
+    color: #8f1932;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  
+  .statistics {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .stat {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .statNumber {
+    font-size: 2.2rem;
+    color: #8f1932;
+    font-weight: 700;
+    transition: all 0.10s ease-in-out; 
+  }
+  
+  
+  .statText {
+    font-size: 1rem;
+    color: #000000;
+  }
+  
+  .learnMoreButton {
+    background-color: #8f1932;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .learnMoreButton:hover {
+    background-color: #a21c42;
+    transform: translateY(-2px);
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    .imageWrapper {
+      margin-top: 30px;
+    }
+    .statistics {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  

@@ -1,0 +1,221 @@
+.remodelingProcessSection {
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);    
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sectionHeader h2 {
+    font-size: 2.5rem;
+    color: #2c4964;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #000000;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stepsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.step {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.stepContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.stepContent:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    background-color: #f3d1d1;
+}
+
+.iconWrapper {
+    position: relative;
+    min-width: 80px;
+    height: 80px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.stepNumber {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: #8f1932;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.stepInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.stepTitle {
+    font-size: 1.4rem;
+    color: #2c4964;
+    margin: 0;
+    font-weight: 400;
+}
+
+.connector {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(to right, 
+        rgba(143, 25, 50, 0.3) 0%,
+        rgba(143, 25, 50, 0.1) 100%);
+    z-index: 1;
+}
+
+/* Hide connector for last step */
+.step:last-child .connector {
+    display: none;
+}
+
+.callToAction {
+    text-align: center;
+    margin-top: 60px;
+    padding: 0 20px;
+}
+
+.callToAction p {
+    font-size: 1.2rem;
+    color: #2c4964;
+    margin-bottom: 20px;
+}
+
+.ctaButton {
+    background-color: #8f1932;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    max-width: 100%;
+}
+
+.ctaButton:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    .stepsContainer {
+        gap: 15px;
+    }
+
+    .stepContent {
+        padding: 20px 15px;
+    }
+
+    .stepTitle {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .remodelingProcessSection {
+        padding: 60px 15px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 2rem;
+    }
+
+    .stepsContainer {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .step {
+        width: 100%;
+    }
+
+    .stepContent {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .connector {
+        right: auto;
+        top: auto;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 30px;
+        background: linear-gradient(to bottom, 
+            rgba(143, 25, 50, 0.3) 0%,
+            rgba(143, 25, 50, 0.1) 100%);
+    }
+
+    .ctaButton {
+        width: 100%;
+        max-width: 300px;
+    }
+}
