@@ -125,10 +125,10 @@ function ContactSection() {
   return (
     <section id="contact" className={styles.contactSection}>
       <Helmet>
-        <title>Contact ROSSI CONSTRUCTION in Bayside, Long Island, Bronx, Manhattan, Boston</title>
+        <title>Contact A.R CONSTRUCTION in Bayside, Long Island, Bronx, Manhattan, Boston</title>
         <meta
           name="description"
-          content="Contact ROSSI CONSTRUCTION for expert home remodeling services in Bayside, Long Island, Bronx, Manhattan, and Boston. Call (929) 720-7437 or fill out our form for a free consultation."
+          content="Contact ROSSI CONSTRUCTION for expert home remodeling services in Bayside, Long Island, Bronx, Manhattan, and Boston. Call (646) 753-3206 or fill out our form for a free consultation."
         />
         <meta
           name="keywords"
@@ -176,8 +176,8 @@ function ContactSection() {
           </ul>
           <p>
             Ready to start? <Link to="/services">Explore our services</Link> or call us at{" "}
-            <a href="tel:+19297207437" aria-label="Call ROSSI CONSTRUCTION at (929) 720-7437">
-              (929) 720-7437
+            <a href="tel:+16467533206" aria-label="Call ROSSI CONSTRUCTION at (646) 753-3206">
+              (646) 753-3206
             </a>.
           </p>
         </div>
