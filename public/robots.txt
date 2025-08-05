@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://velvety-dieffenbachia-688e02.netlify.app/sitemap.xml
