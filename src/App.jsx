@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Helmet>
-        <title>A.R CONSTRUCTION - Home Remodeling Experts in Bayside, Long Island, Bronx, Manhattan, Boston</title>
+        <title>A.R CONSTRUCTION</title>
         <meta
           name="description"
           content="Transform your home with ROSSI CONSTRUCTION, trusted experts in kitchen, bathroom, and full-home renovations in Bayside, Long Island, Bronx, Manhattan, and Boston."
