@@ -63,7 +63,7 @@ function AboutUs () {
             Over 12 Years of Excellence in Home Remodeling
           </p>
           <p className={styles.description}>
-            At <strong>ROSSI CONSTRUCTION</strong>, we bring over 12 years of expertise to transform your house into the home of your dreams. From kitchens and bathrooms to full-home renovations, our passionate team of skilled designers and craftsmen work closely with you to deliver a seamless and stress-free remodeling experience.
+            At <strong>A.R CONSTRUCTION</strong>, we bring over 12 years of expertise to transform your house into the home of your dreams. From kitchens and bathrooms to full-home renovations, our passionate team of skilled designers and craftsmen work closely with you to deliver a seamless and stress-free remodeling experience.
           </p>
           <div className={styles.statistics}>
             <div className={styles.stat}>

@@ -82,7 +82,21 @@ const GeneralServices = () => {
         "Safety upgrades",
       ],
     },
+    {
+      id: 7,
+      title: "HVAC Repair",
+      icon: "💨",
+      description: "Expert heating, ventilation, and air conditioning services to keep your home comfortable year-round.",
+      features: [
+        "Air conditioner repair & maintenance",
+        "Furnace servicing",
+        "Duct cleaning & sealing",
+        "Thermostat installation & repair",
+        "Indoor air quality solutions",
+      ],
+    },
   ];
+
 
   const [activeService, setActiveService] = useState(null);
 
@@ -178,7 +192,7 @@ const GeneralServices = () => {
                 Contact Us
               </Link>
               <a
-                href="https://wa.me/19297207437"
+                href="https://wa.me/16467533206"
                 className={styles.learnMore}
                 aria-label={`Learn more about ${service.title} on WhatsApp`}
                 target="_blank"
