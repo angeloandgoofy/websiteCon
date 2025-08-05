@@ -25,7 +25,6 @@ function App() {
         />
         <meta name="author" content="ROSSI CONSTRUCTION" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://www.rossiconstruction.com" />
         <meta property="og:title" content="ROSSI CONSTRUCTION - Home Remodeling Experts" />
         <meta
           property="og:description"
