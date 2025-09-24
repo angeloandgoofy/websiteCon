@@ -3,14 +3,15 @@
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
     transition: all 0.3s ease;
+    background-color: #1b1a1a;
+
     z-index: 1000;
     height: 60px;
 }
 
 .scrolled {
-    background-color: white;
+    background-color: #1b1a1a;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -47,7 +48,7 @@
 }
 
 .h3 {
-    color: #333;
+    color: #fffefe;
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0;
@@ -60,11 +61,12 @@
     gap: 2rem;
 }
 
+
 .phoneNumber {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
@@ -74,7 +76,7 @@
     white-space: nowrap;
 }
 .phoneNumber:hover {
-    background-color: rgba(226, 25, 18, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-1px);
 }
 .navList {
@@ -90,7 +92,7 @@
 }
 
 .navLink {
-    color: #000000;
+    color: #f8f1f1;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -104,7 +106,7 @@
 }
 
 .navLink:hover {
-    color: #2563eb;
+    color: #c41a1a;
 }
 
 .dropdown {
@@ -124,7 +126,7 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background-color: white;
+    background-color: #1b1a1a;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     opacity: 0;
@@ -179,10 +181,10 @@
 
     .navRight {
         position: fixed;
-        top: 80px;
+        top: 85px;
         left: 0;
         right: 0;
-        background-color: white;
+        background-color: #1b1a1a;
         padding: 1rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         transform: translateY(-100%);
@@ -190,13 +192,13 @@
         visibility: hidden;
         transition: all 0.3s ease;
     }
-    .phoneNumber {
-        display: none;
-    }
+ 
     .mobileOpen {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
+        display: flex;
+        flex-direction: column;
     }
 
     .navList {

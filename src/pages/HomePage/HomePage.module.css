@@ -1,5 +1,4 @@
 .homeSection {
-    background-color: #fcfcfc;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,6 +24,7 @@
     height: 100%;
     object-fit: cover;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    background-color: #1b1a1a;
 }
 
 .transitioning {
@@ -129,13 +129,13 @@
 .ctaSection {
     padding: 2rem;
     text-align: center;
-    background-color: #fcfcfc;
+    background-color: #1b1a1a;
     width: 100%;
     z-index: 2;
 }
 
 .ctaText {
-    color: #333;
+    color: #ffffff;
     font-size: 1.5rem;
     margin-bottom: 1rem;
     font-weight: 500;

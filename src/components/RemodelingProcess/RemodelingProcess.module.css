@@ -1,6 +1,6 @@
 .remodelingProcessSection {
     padding: 80px 20px;
-    background: linear-gradient(to bottom, #ffffff, #f8f9fa);    
+    background-color: #1b1a1a;
 }
 
 .sectionHeader {
@@ -10,14 +10,14 @@
 
 .sectionHeader h2 {
     font-size: 2.5rem;
-    color: #2c4964;
+    color: #ffffff;
     margin-bottom: 16px;
     font-weight: 600;
 }
 
 .subtitle {
     font-size: 1.1rem;
-    color: #000000;
+    color: hsl(0, 0%, 100%);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -47,7 +47,7 @@
     align-items: center;
     text-align: center;
     gap: 20px;
-    background: white;
+    background: rgb(53, 49, 49);
     padding: 30px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -99,7 +99,7 @@
 
 .stepTitle {
     font-size: 1.4rem;
-    color: #2c4964;
+    color: #f5f5f5;
     margin: 0;
     font-weight: 400;
 }
@@ -116,7 +116,6 @@
     z-index: 1;
 }
 
-/* Hide connector for last step */
 .step:last-child .connector {
     display: none;
 }
@@ -129,7 +128,7 @@
 
 .callToAction p {
     font-size: 1.2rem;
-    color: #2c4964;
+    color: #e4190a;
     margin-bottom: 20px;
 }
 
@@ -162,7 +161,6 @@
     }
 }
 
-/* Tablet Breakpoint */
 @media (max-width: 1024px) {
     .stepsContainer {
         gap: 15px;
@@ -177,7 +175,6 @@
     }
 }
 
-/* Mobile Breakpoint */
 @media (max-width: 768px) {
     .remodelingProcessSection {
         padding: 60px 15px;

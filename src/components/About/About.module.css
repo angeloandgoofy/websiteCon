@@ -1,6 +1,6 @@
 .aboutUsSection {
     padding: 80px 20px;
-    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    background-color: #1b1a1a;
     overflow: hidden;
   }
   
@@ -40,21 +40,21 @@
   
   .title {
     font-size: 2.5rem;
-    color: #2c4964;
+    color: #ffffff;
     margin-bottom: 16px;
     font-weight: 700;
   }
   
   .subtitle {
     font-size: 1.3rem;
-    color: #8f1932;
+    color: #ffffff;
     margin-bottom: 20px;
     font-weight: 600;
   }
   
   .description {
     font-size: 1.1rem;
-    color: #666;
+    color: #ffffff;
     line-height: 1.6;
     margin-bottom: 40px;
   }
@@ -80,7 +80,7 @@
   
   .statText {
     font-size: 1rem;
-    color: #000000;
+    color: #fcfafa;
   }
   
   .learnMoreButton {

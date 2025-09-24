@@ -18,7 +18,7 @@ function ContactSection() {
     state: "",
     zipcode: "",
     message: "",
-    honeypot: "", // Added for spam protection
+    honeypot: "", 
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -134,7 +134,7 @@ function ContactSection() {
           name="keywords"
           content="contact home remodeling, Bayside remodeling, Long Island remodeling, Bronx remodeling, Manhattan remodeling, Boston remodeling, ROSSI CONSTRUCTION"
         />
-        <link rel="canonical" href="https://www.rossiconstruction.com/contact" />
+        <link rel="canonical" href="https://velvety-dieffenbachia-688e02.netlify.app/contact" />
         <meta
           property="og:title"
           content="Contact ROSSI CONSTRUCTION for Home Remodeling"
@@ -147,7 +147,7 @@ function ContactSection() {
           property="og:image"
           content="https://www.rossiconstruction.com/images/contact-page.jpg"
         />
-        <meta property="og:url" content="https://www.rossiconstruction.com/contact" />
+        <meta property="og:url" content="https://velvety-dieffenbachia-688e02.netlify.app/contact" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{`
           {
@@ -155,7 +155,7 @@ function ContactSection() {
             "@type": "ContactPage",
             "name": "Contact ROSSI CONSTRUCTION",
             "description": "Contact form for ROSSI CONSTRUCTION, offering home remodeling services in Bayside, Long Island, Bronx, Manhattan, and Boston.",
-            "url": "https://www.rossiconstruction.com/contact"
+            "url": "https://velvety-dieffenbachia-688e02.netlify.app/contact"
           }
         `}</script>
       </Helmet>
@@ -329,7 +329,7 @@ function ContactSection() {
               ></textarea>
             </div>
 
-            {/* (hidden from users, visible to bots) */}
+            {/* hidden from users, visible to bots */}
             <div className={styles.honeypot}>
               <label htmlFor="honeypot">Leave this field empty</label>
               <input

@@ -34,7 +34,7 @@ function Navbar() {
       <div className={styles.navContent}>
         <div className={styles.logoTitle}>
           <NavLink to="/" className={styles.logoLink}>
-            <img src={logo} className={styles.logo} alt="A.R CONSTRUCTION - Home Remodeling Experts" />
+            <img src={logo} className={styles.logo} alt="A.R CONSTRUCTION - Home Remodeling" />
           </NavLink>
           <h3 className={styles.h3}>A.R Construction</h3>
         </div>
@@ -92,7 +92,7 @@ function Navbar() {
                             className={({ isActive }) =>
                               `${styles.navLink} ${isActive ? styles.active : ""}`
                             }
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                           >
                             {subItem.name}
                           </NavLink>
@@ -106,7 +106,7 @@ function Navbar() {
                     className={({ isActive }) =>
                       `${styles.navLink} ${isActive ? styles.active : ""}`
                     }
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   >
                     {item.name}
                   </NavLink>

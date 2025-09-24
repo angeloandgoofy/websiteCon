@@ -40,7 +40,7 @@ function HomePage() {
                     className={`${styles.home} ${isTransitioning ? styles.transitioning : ''}`}
                     alt='Rossi Construction'
                 />
-                <div className={styles.overlay} />
+            <div className={styles.overlay} />
                 
                 <button 
                     className={`${styles.navButton} ${styles.prevButton}`}
@@ -74,7 +74,6 @@ function HomePage() {
 
                 <div className={styles.content}>
                     <h1>Effortlessly Beautiful Home Remodeling</h1>
-                    <p className={styles.subheading}>From concept to completion, we make home remodeling easy.</p>
                 </div>
             </div>
 
