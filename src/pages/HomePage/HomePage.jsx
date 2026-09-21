@@ -87,7 +87,7 @@ function HomePage() {
                   </NavLink>
                 
             </div>
-            <RemodelProcess/>
+            <RemodelProcess/>            
             <About/>
         </section>
     );

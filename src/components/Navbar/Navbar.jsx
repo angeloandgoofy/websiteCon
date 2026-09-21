@@ -12,8 +12,7 @@ function Navbar() {
     {
       name: "SERVICES",
       subItems: [
-        { name: "Bathroom Remodel Services", link: "/bathroom" },
-        { name: "Kitchen Remodel Services", link: "/kitchen" },
+        
         { name: "General Remodel Services", link: "/services" },
       ],
     },

@@ -80,8 +80,6 @@ function App() {
       <Links />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/bathroom" element={<Bathroom />} />
-        <Route path="/kitchen" element={<Kitchen />} />
         <Route path="/services" element={<GeneralServices />} />
         <Route path="/contact" element={<ContactSection />} />
       </Routes>
