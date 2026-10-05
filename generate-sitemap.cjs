@@ -3,8 +3,8 @@ const { createWriteStream } = require('fs');
 
 const links = [
   { url: '/', changefreq: 'monthly', priority: 1.0 },
-  { url: '/bathroom', changefreq: 'monthly', priority: 0.8 },
-  { url: '/kitchen', changefreq: 'monthly', priority: 0.8 },
+  //{ url: '/bathroom', changefreq: 'monthly', priority: 0.8 },
+  //{ url: '/kitchen', changefreq: 'monthly', priority: 0.8 },
   { url: '/services', changefreq: 'monthly', priority: 0.8 },
   { url: '/contact', changefreq: 'monthly', priority: 0.8 },
 ];

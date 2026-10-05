@@ -26,12 +26,12 @@ function TopHeader() {
             "contactPoint": [
               {
                 "@type": "ContactPoint",
-                "telephone": "+19297207437",
+                "telephone": "+16316054283",
                 "contactType": "Customer Service"
               },
               {
                 "@type": "ContactPoint",
-                "url": "https://wa.me/19297207437",
+                "url": "https://wa.me/16316054283",
                 "contactType": "Customer Service"
               }
             ],
@@ -44,7 +44,7 @@ function TopHeader() {
         <div className={styles.infoGroup}>
           <div className={styles.infoItem}>
             <MapPin size={16} aria-hidden="true" />
-            <span>Serving Bayside, Long Island, Bronx, Manhattan, Boston</span>
+            <span>Serving Maine, New Hampshire, Massachusetts, New York</span>
           </div>
          
           <div className={styles.infoItem}>
@@ -55,7 +55,7 @@ function TopHeader() {
 
         {/* Social Links */}
         <div className={styles.socialLinks}>
-          {[
+          {[/*
             {
               href: "https://www.instagram.com/rossiconstruction",
               label: "Follow ROSSI CONSTRUCTION on Instagram",
@@ -75,10 +75,10 @@ function TopHeader() {
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1Z" />
                 </svg>
               ),
-            },
+            },*/
             {
               href: "https://wa.me/16467533206",
-              label: "Contact A.R CONSTRUCTION on WhatsApp",
+              label: "Contact ROSSI BROTHERS CONTRACTING on WhatsApp",
               icon: <Send size={18} aria-hidden="true" />,
             },
           ].map(({ href, label, icon }, index) => (

@@ -33,9 +33,9 @@ function Navbar() {
       <div className={styles.navContent}>
         <div className={styles.logoTitle}>
           <NavLink to="/" className={styles.logoLink}>
-            <img src={logo} className={styles.logo} alt="A.R CONSTRUCTION - Home Remodeling" />
+            <img src={logo} className={styles.logo} alt="ROSSI BROTHERS CONTRACTING" />
           </NavLink>
-          <h3 className={styles.h3}>A.R Construction</h3>
+          <h3 className={styles.h3}>ROSSI BROTHERS CONTRACTING</h3>
         </div>
 
         <button
