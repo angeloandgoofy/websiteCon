@@ -6,55 +6,6 @@ import { SITE } from "../../../constants/site";
 
 function GeneralServices() {
   return (
-<<<<<<< HEAD
-    <main id="service3" className={styles.servicesContainer}>
-      <Helmet>
-        <title>General Home Renovation Services in Mine, New York, Long Island, Queens, New Hampshire, Massachusetts | ROSSI BROTHERS CONTRACTING</title>
-        <meta
-          name="description"
-          content="ROSSI BROTHERS CONTRACTING offers expert electrical, plumbing, drywall, concrete, lighting, and maintenance services in Bayside, Long Island, Bronx, Manhattan, and Boston."
-        />
-        <meta
-          name="keywords"
-          content="home renovation, electrical services Bayside, plumbing Long Island, drywall Bronx, concrete Manhattan, lighting Boston, ROSSI BROTHERS CONTRACTING"
-        />
-        <link rel="canonical" href="https://www.rossiconstruction.com/services" />
-        <meta property="og:title" content="General Home Renovation Services | ROSSI BROTHERS CONTRACTING" />
-        <meta
-          property="og:description"
-          content="Expert home renovation services including electrical, plumbing, drywall, concrete, lighting, and maintenance in Bayside, Long Island, Bronx, Manhattan, and Boston."
-        />
-        <meta property="og:image" content="https://www.rossiconstruction.com/images/services.jpg" />
-        <meta property="og:url" content="https://www.rossiconstruction.com/services" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "General Home Renovation Services",
-            "description": "ROSSI BROTHERS CONTRACTING offers expert electrical, plumbing, drywall, concrete, lighting, and maintenance services in Bayside, Long Island, Bronx, Manhattan, and Boston.",
-            "url": "https://www.rossiconstruction.com/services",
-            "hasPart": [
-              ${services.map(
-                (service) => `
-                {
-                  "@type": "Service",
-                  "name": "${service.title}",
-                  "description": "${service.description}",
-                  "serviceType": "${service.title}",
-                  "provider": {
-                    "@type": "LocalBusiness",
-                    "name": "ROSSI BROTHERS CONTRACTING",
-                    "telephone": "(929) 720-7437",
-                    "url": "https://www.rossiconstruction.com"
-                  }
-                }`
-              ).join(",")}
-            ]
-          }
-        `}</script>
-      </Helmet>
-=======
     <div id="service3" className={styles.servicesContainer}>
       <Seo
         title={`Remodeling Services | ${SITE.name}`}
@@ -81,18 +32,11 @@ function GeneralServices() {
           })),
         }}
       />
->>>>>>> d2a6561 ( refactored the code)
 
       <header className={styles.header}>
-<<<<<<< HEAD
-        <h1 className={styles.title}>General Contracting & Home Remodeling</h1>
-        <p className={styles.subtitle}>
-          Trusted Home Remodeling and general contracting services in Maine, Long Island, Queens, New Hampshire, Massachusetts, and New York. 
-=======
         <h1 className={styles.title}>Home Remodeling &amp; General Contracting Services</h1>
         <p className={styles.subtitle}>
           Professional home improvement and maintenance across {SITE.areaText}.
->>>>>>> d2a6561 ( refactored the code)
         </p>
       </header>
 

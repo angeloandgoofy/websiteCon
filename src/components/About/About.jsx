@@ -49,19 +49,6 @@ function AboutUs() {
       <div className={styles.container}>
         <div className={styles.content}>
           <h2 className={styles.title}>About Us</h2>
-<<<<<<< HEAD
-          <p className={styles.subtitle}>
-            <h1 style={{ fontSize: '2rem', color: 'white'}}>ROSSI BROTHERS CONTRACTING</h1>
-              Over 12 Years of Excellence in Home Remodeling
-          </p>
-          <p className={styles.description}>
-            
-            Rossi Brothers Contracting is a trusted, family-owned general contracting and home remodeling company serving homeowners throughout Maine, New Hampshire, Massachusetts, and New York. Operated by three brothers, we bring more than 12 years of hands-on remodeling experience to every project.
-            We specialize in kitchen remodeling, bathroom renovations, whole-home remodeling, flooring, interior and exterior painting, electrical, plumbing, HVAC, and complete home improvement projects.
-            Our commitment is simple: quality workmanship, honest communication, dependable service, and attention to detail. Whether you are planning a kitchen renovation, bathroom remodel, home renovation, or complete property improvement, our experienced team works closely with you from start to finish to deliver professional craftsmanship and reliable results.
-            At Rossi Brothers Contracting, we believe every successful remodeling project begins with trust. We take pride in treating every home with care, providing dependable service, and helping homeowners turn their ideas into beautiful, functional spaces.
-            Rossi Brothers Contracting — trusted craftsmanship, reliable service, and quality home remodeling.
-=======
           <p className={styles.subtitle}>Over 12 years of excellence in home remodeling</p>
           <p className={styles.description}>
             At <strong>{SITE.name}</strong>, we
@@ -69,7 +56,6 @@ function AboutUs() {
             kitchens and bathrooms to full-home renovations across {SITE.areaText},
             our designers and craftsmen keep the process clear, on schedule, and
             built to last.
->>>>>>> d2a6561 ( refactored the code)
           </p>
           <div className={styles.statistics}>
             <div className={styles.stat}>
