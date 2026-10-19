@@ -13,23 +13,6 @@
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   margin-bottom: 1rem;
-<<<<<<< HEAD
-  position: relative;
-  display: inline-block;
-}
-
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #f6413b, #1d4ed8);
-  border-radius: 2px;
-=======
->>>>>>> d2a6561 ( refactored the code)
 }
 
 .subtitle {
@@ -50,29 +33,8 @@
   background: var(--card-bg);
   border-radius: 16px;
   padding: 2rem;
-<<<<<<< HEAD
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.serviceCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #f6413b, #1d4ed8);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: left;
-=======
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
->>>>>>> d2a6561 ( refactored the code)
 }
 
 .serviceCard:hover {
