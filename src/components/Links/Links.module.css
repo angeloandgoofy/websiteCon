@@ -64,15 +64,6 @@
   color: var(--accent);
 }
 
-<<<<<<< HEAD
-
-@media (max-width: 768px) {
-  .container {
-    display: none;
-  }
-  .scrolled {
-    background-color: transparent;
-=======
 @media (max-width: 768px) {
   .infoItem span {
     display: none;
@@ -84,6 +75,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
->>>>>>> d2a6561 ( refactored the code)
   }
 }

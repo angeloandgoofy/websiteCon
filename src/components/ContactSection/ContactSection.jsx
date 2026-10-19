@@ -8,6 +8,9 @@ import { SITE } from "../../constants/site";
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_CONFIGURED = Boolean(
+  EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY
+);
 
 const INITIAL_FORM = {
   name: "",
@@ -68,9 +71,16 @@ function ContactSection() {
       return;
     }
 
+    if (!EMAILJS_CONFIGURED) {
+      setErrors({
+        form: "The contact form is not connected for this deployment. Please try again later.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      const response = await emailjs.send(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
@@ -86,14 +96,12 @@ function ContactSection() {
         EMAILJS_PUBLIC_KEY
       );
 
-      if (response.status === 200) {
-        setIsSubmitted(true);
-        setFormData(INITIAL_FORM);
-        formRef.current?.focus();
-      }
+      setIsSubmitted(true);
+      setFormData(INITIAL_FORM);
+      formRef.current?.focus();
     } catch (error) {
       console.error("EmailJS error:", error);
-      setErrors({ form: "Failed to send message. Please try again later." });
+      setErrors({ form: "We couldn't send your message. Please try again shortly." });
     } finally {
       setIsSubmitting(false);
     }

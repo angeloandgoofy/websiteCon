@@ -1,8 +1,13 @@
-# React + Vite
+# Rossi Brothers Contracting website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Contact form setup
 
-Currently, two official plugins are available:
+The contact form sends submissions through EmailJS. Configure these Vite environment variables for both local builds and the Netlify site:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
+For Netlify, add all three under the site's environment variables and trigger a new deploy after saving them. Environment files are excluded from Git, so the local `.env` values do not automatically reach Netlify. Confirm that the selected EmailJS template uses the form's fields (`from_name`, `from_email`, `phone`, `address`, `city`, `state`, `zipcode`, and `message`) and routes messages to the intended inbox.
+
+The production build command is `npm run build`; it generates the sitemap and writes the Vite site to `dist`.

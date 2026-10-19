@@ -21,19 +21,10 @@ function Navbar() {
       aria-label="Main navigation"
     >
       <div className={styles.navContent}>
-<<<<<<< HEAD
-        <div className={styles.logoTitle}>
-          <NavLink to="/" className={styles.logoLink}>
-            <img src={logo} className={styles.logo} alt="ROSSI BROTHERS CONTRACTING" />
-          </NavLink>
-          <h3 className={styles.h3}>ROSSI BROTHERS CONTRACTING</h3>
-        </div>
-=======
         <NavLink to="/" className={styles.logoLink}>
           <img className={styles.mark} src="/logo.svg" alt="" aria-hidden="true" />
           <span className={styles.brand}>{SITE.name}</span>
         </NavLink>
->>>>>>> d2a6561 ( refactored the code)
 
         <button
           className={`${styles.mobileMenuButton} ${isMobileMenuOpen ? styles.open : ""}`}
