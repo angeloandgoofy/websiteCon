@@ -1,20 +1,19 @@
 .servicesContainer {
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 4rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: linear-gradient(to bottom, #ffffff, #f8fafc);
 }
 
 .header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #1e293b;
   margin-bottom: 1rem;
+<<<<<<< HEAD
   position: relative;
   display: inline-block;
 }
@@ -29,27 +28,29 @@
   height: 4px;
   background: linear-gradient(90deg, #f6413b, #1d4ed8);
   border-radius: 2px;
+=======
+>>>>>>> d2a6561 ( refactored the code)
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  color: #64748b;
-  max-width: 600px;
-  margin: 1.5rem auto 0;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
 }
 
 .serviceCard {
-  background: white;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 2rem;
+<<<<<<< HEAD
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -68,15 +69,14 @@
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: left;
+=======
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+>>>>>>> d2a6561 ( refactored the code)
 }
 
 .serviceCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-}
-
-.serviceCard:hover::before {
-  transform: scaleX(1);
+  transform: translateY(-6px);
 }
 
 .serviceIcon {
@@ -85,159 +85,67 @@
 }
 
 .serviceTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
+  font-size: 1.4rem;
   margin-bottom: 1rem;
+  text-transform: none;
 }
 
-.serviceDescription {
-  color: #64748b;
+.serviceDescription,
+.featureItem {
+  color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
 }
 
 .featuresList {
   margin: 1.5rem 0;
+  padding-left: 1.1rem;
 }
 
 .featureItem {
-  display: flex;
-  align-items: center;
-  color: #475569;
   margin-bottom: 0.75rem;
-  font-size: 0.95rem;
 }
 
-.featureIcon {
-  color: #f33709;
-  margin-right: 0.5rem;
-  font-weight: bold;
+.serviceLinks {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contactLink,
+.learnMore,
+.ctaButton {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contactLink,
+.ctaButton {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  border-radius: 8px;
 }
 
 .learnMore {
-  display: flex;
-  align-items: center;
-  color: #3b82f6;
-  font-weight: 600;
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: all 0.3s ease;
-}
-
-.arrow {
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.learnMore:hover .arrow {
-  transform: translateX(4px);
+  color: var(--accent);
 }
 
 .callToAction {
   text-align: center;
-  padding: 4rem;
-  border-radius: 16px;
-  color: white;
-  margin-top: 4rem;
+  padding: 4rem 1rem 1rem;
 }
 
 .ctaTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .ctaText {
-  font-size: 1.25rem;
-  opacity: 0.9;
+  color: var(--text-muted);
   margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.ctaButton {
-  background: #8f1932;
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
-}
-
-.ctaButton:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 12px rgba(59, 130, 246, 0.3);
-}
-
-@media (max-width: 768px) {
-  .servicesContainer {
-    padding: 3rem 1rem;
-  }
-
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .subtitle {
-    font-size: 1.125rem;
-  }
-
-  .servicesGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .callToAction {
-    padding: 3rem 1.5rem;
-  }
-
-  .ctaTitle {
-    font-size: 2rem;
-  }
-
-  .ctaText {
-    font-size: 1.125rem;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .serviceCard,
-  .learnMore,
-  .ctaButton {
-    transition: none;
-  }
-}
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  .serviceCard {
-    border: 2px solid #1e293b;
-  }
-
-  .callToAction {
-    background: #000;
-    border: 2px solid #fff;
-  }
+.ctaButton:hover,
+.contactLink:hover {
+  background: var(--accent-hover);
 }

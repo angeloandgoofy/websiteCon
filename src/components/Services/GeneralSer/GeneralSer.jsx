@@ -1,106 +1,12 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import styles from "./GeneralSer.module.css";
+import Seo from "../../Seo/Seo";
+import { SERVICES } from "../../../constants/services";
+import { SITE } from "../../../constants/site";
 
-const GeneralServices = () => {
-  const services = [
-    {
-      id: 1,
-      title: "Electrical Services",
-      icon: "⚡",
-      description: "Professional electrical installations and repairs including lighting fixtures, circuit breakers, and complete rewiring solutions.",
-      features: [
-        "Light fixture installation & repair",
-        "Panel upgrades",
-        "Outlet installation",
-        "Electrical troubleshooting",
-        "Smart home wiring",
-      ],
-    },
-    {
-      id: 2,
-      title: "Plumbing",
-      icon: "🔧",
-      description: "Comprehensive plumbing services from repairs to complete system installations, ensuring your home's water systems run efficiently.",
-      features: [
-        "Pipe repair & replacement",
-        "Fixture installation",
-        "Water heater services",
-        "Drain cleaning",
-        "Leak detection",
-      ],
-    },
-    {
-      id: 3,
-      title: "Drywall",
-      icon: "🏗️",
-      description: "Expert drywall installation, repair, and finishing services to maintain your home's interior walls in perfect condition.",
-      features: [
-        "New installation",
-        "Patch repairs",
-        "Texture matching",
-        "Finishing & painting",
-        "Moisture damage repair",
-      ],
-    },
-    {
-      id: 4,
-      title: "Concrete Work",
-      icon: "🏗️",
-      description: "Professional concrete services for both structural and decorative applications, enhancing your property's functionality and appeal.",
-      features: [
-        "Foundation repair",
-        "Driveway installation",
-        "Walkway construction",
-        "Decorative concrete",
-        "Concrete resurfacing",
-      ],
-    },
-    {
-      id: 5,
-      title: "Lighting Design",
-      icon: "💡",
-      description: "Transform your space with expert lighting design and installation services that combine functionality with aesthetic appeal.",
-      features: [
-        "LED upgrades",
-        "Accent lighting",
-        "Outdoor lighting",
-        "Smart lighting systems",
-        "Energy-efficient solutions",
-      ],
-    },
-    {
-      id: 6,
-      title: "General Maintenance",
-      icon: "🔨",
-      description: "Comprehensive maintenance services to keep your property in top condition, addressing issues before they become major problems.",
-      features: [
-        "Preventive maintenance",
-        "Emergency repairs",
-        "Seasonal maintenance",
-        "Safety upgrades",
-      ],
-    },
-    {
-      id: 7,
-      title: "HVAC Repair",
-      icon: "💨",
-      description: "Expert heating, ventilation, and air conditioning services to keep your home comfortable year-round.",
-      features: [
-        "Air conditioner repair & maintenance",
-        "Furnace servicing",
-        "Duct cleaning & sealing",
-        "Thermostat installation & repair",
-        "Indoor air quality solutions",
-      ],
-    },
-  ];
-
-
-  const [activeService, setActiveService] = useState(null);
-
+function GeneralServices() {
   return (
+<<<<<<< HEAD
     <main id="service3" className={styles.servicesContainer}>
       <Helmet>
         <title>General Home Renovation Services in Mine, New York, Long Island, Queens, New Hampshire, Massachusetts | ROSSI BROTHERS CONTRACTING</title>
@@ -148,53 +54,70 @@ const GeneralServices = () => {
           }
         `}</script>
       </Helmet>
+=======
+    <div id="service3" className={styles.servicesContainer}>
+      <Seo
+        title={`Remodeling Services | ${SITE.name}`}
+        description={`${SITE.name} provides home remodeling and general contracting, including electrical, plumbing, drywall, concrete, lighting, HVAC, and maintenance services across ${SITE.areaText}.`}
+        path="/services"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: `${SITE.name} renovation services`,
+          itemListElement: SERVICES.map((service, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "Service",
+              name: service.title,
+              description: service.description,
+              provider: {
+                "@type": "Organization",
+                name: SITE.name,
+                url: SITE.url,
+                telephone: SITE.phoneE164,
+              },
+            },
+          })),
+        }}
+      />
+>>>>>>> d2a6561 ( refactored the code)
 
-      {/* Header Section */}
       <header className={styles.header}>
+<<<<<<< HEAD
         <h1 className={styles.title}>General Contracting & Home Remodeling</h1>
         <p className={styles.subtitle}>
           Trusted Home Remodeling and general contracting services in Maine, Long Island, Queens, New Hampshire, Massachusetts, and New York. 
+=======
+        <h1 className={styles.title}>Home Remodeling &amp; General Contracting Services</h1>
+        <p className={styles.subtitle}>
+          Professional home improvement and maintenance across {SITE.areaText}.
+>>>>>>> d2a6561 ( refactored the code)
         </p>
       </header>
 
-      {/* Services Section */}
-      <section className={styles.servicesGrid} aria-label="Our Renovation Services">
-        {services.map((service) => (
-          <article
-            key={service.id}
-            className={`${styles.serviceCard} ${activeService === service.id ? styles.active : ""}`}
-            onMouseEnter={() => setActiveService(service.id)}
-            onMouseLeave={() => setActiveService(null)}
-            onFocus={() => setActiveService(service.id)}
-            onBlur={() => setActiveService(null)}
-            tabIndex="0"
-            role="button"
-            aria-label={`Learn about ${service.title}`}
-            aria-expanded={activeService === service.id}
-          >
-            <div className={styles.serviceIcon}>{service.icon}</div>
+      <section className={styles.servicesGrid} aria-label="Renovation services">
+        {SERVICES.map((service) => (
+          <article key={service.id} className={styles.serviceCard}>
+            <div className={styles.serviceIcon} aria-hidden="true">
+              {service.icon}
+            </div>
             <h2 className={styles.serviceTitle}>{service.title}</h2>
             <p className={styles.serviceDescription}>{service.description}</p>
-           
             <ul className={styles.featuresList}>
-              {service.features.map((feature, index) => (
-                <li key={index} className={styles.featureItem}>
+              {service.features.map((feature) => (
+                <li key={feature} className={styles.featureItem}>
                   {feature}
                 </li>
               ))}
             </ul>
             <div className={styles.serviceLinks}>
-              <Link
-                to="/contact"
-                className={styles.contactLink}
-                aria-label={`Contact us for ${service.title}`}
-              >
-                Contact Us
+              <Link to="/contact" className={styles.contactLink}>
+                Contact us
               </Link>
               <a
-                href="https://wa.me/16467533206"
+                href={SITE.whatsapp}
                 className={styles.learnMore}
-                aria-label={`Learn more about ${service.title} on WhatsApp`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -205,22 +128,17 @@ const GeneralServices = () => {
         ))}
       </section>
 
-      {/* Call to Action Section */}
-      <footer className={styles.callToAction}>
-        <h2 className={styles.ctaTitle}>Ready to Transform Your Home?</h2>
+      <section className={styles.callToAction}>
+        <h2 className={styles.ctaTitle}>Ready to transform your home?</h2>
         <p className={styles.ctaText}>
-          Contact us today for a free consultation and estimate on your home renovation project in Bayside, Long Island, Bronx, Manhattan, or Boston.
+          Schedule a free consultation for your renovation project in {SITE.areaText}.
         </p>
-        <Link
-          to="/contact"
-          className={styles.ctaButton}
-          aria-label="Schedule a consultation"
-        >
-          Schedule Consultation
+        <Link to="/contact" className={styles.ctaButton}>
+          Schedule consultation
         </Link>
-      </footer>
-    </main>
+      </section>
+    </div>
   );
-};
+}
 
 export default GeneralServices;

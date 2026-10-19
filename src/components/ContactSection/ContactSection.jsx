@@ -1,82 +1,79 @@
-import React, { useState, useRef } from "react";
-import { Helmet } from "react-helmet-async";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import styles from "./ContactSection.module.css";
+import Seo from "../Seo/Seo";
+import { SITE } from "../../constants/site";
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+const INITIAL_FORM = {
+  name: "",
+  email: "",
+  phone: "",
+  address: "",
+  city: "",
+  state: "",
+  zipcode: "",
+  message: "",
+  honeypot: "",
+};
+
 function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    city: "",
-    state: "",
-    zipcode: "",
-    message: "",
-    honeypot: "", 
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef(null);
 
   const validateForm = () => {
-    const newErrors = {};
+    const nextErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-
+    if (!formData.name.trim()) nextErrors.name = "Name is required";
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      nextErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
+      nextErrors.email = "Please enter a valid email";
     }
-
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone is required";
+      nextErrors.phone = "Phone is required";
     } else if (!/^\+?\d{10,15}$/.test(formData.phone.replace(/\D/g, ""))) {
-      newErrors.phone = "Please enter a valid phone number (10-15 digits)";
+      nextErrors.phone = "Please enter a valid phone number (10-15 digits)";
     }
-
     if (formData.zipcode && !/^\d{5}(-\d{4})?$/.test(formData.zipcode)) {
-      newErrors.zipcode = "Please enter a valid US ZIP code (e.g., 12345 or 12345-6789)";
+      nextErrors.zipcode = "Please enter a valid US ZIP code";
     }
+    if (formData.honeypot) nextErrors.honeypot = "Spam detected";
 
-    if (formData.honeypot) {
-      newErrors.honeypot = "Spam detected";
-    }
-
-    return newErrors;
+    return nextErrors;
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newErrors = validateForm();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const nextErrors = validateForm();
 
-    if (Object.keys(newErrors).length === 0) {
-      setIsSubmitting(true);
-      try {
-        const templateParams = {
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      document.getElementById(Object.keys(nextErrors)[0])?.focus();
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
@@ -85,89 +82,43 @@ function ContactSection() {
           state: formData.state,
           zipcode: formData.zipcode,
           message: formData.message,
-        };
+        },
+        EMAILJS_PUBLIC_KEY
+      );
 
-        const response = await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          templateParams,
-          EMAILJS_PUBLIC_KEY
-        );
-
-        if (response.status === 200) {
-          setIsSubmitted(true);
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            address: "",
-            city: "",
-            state: "",
-            zipcode: "",
-            message: "",
-            honeypot: "",
-          });
-          formRef.current.focus(); 
-        }
-      } catch (error) {
-        console.error("EmailJS error:", error);
-        setErrors({ form: "Failed to send message. Please try again later." });
-      } finally {
-        setIsSubmitting(false);
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        setFormData(INITIAL_FORM);
+        formRef.current?.focus();
       }
-    } else {
-      setErrors(newErrors);
-      const firstErrorField = Object.keys(newErrors)[0];
-      document.getElementById(firstErrorField)?.focus();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setErrors({ form: "Failed to send message. Please try again later." });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <section id="contact" className={styles.contactSection}>
-      <Helmet>
-        <title>Contact A.R CONSTRUCTION in Bayside, Long Island, Bronx, Manhattan, Boston</title>
-        <meta
-          name="description"
-          content="Contact ROSSI CONSTRUCTION for expert home remodeling services in Bayside, Long Island, Bronx, Manhattan, and Boston. Call (646) 753-3206 or fill out our form for a free consultation."
-        />
-        <meta
-          name="keywords"
-          content="contact home remodeling, Bayside remodeling, Long Island remodeling, Bronx remodeling, Manhattan remodeling, Boston remodeling, ROSSI CONSTRUCTION"
-        />
-        <link rel="canonical" href="https://velvety-dieffenbachia-688e02.netlify.app/contact" />
-        <meta
-          property="og:title"
-          content="Contact ROSSI CONSTRUCTION for Home Remodeling"
-        />
-        <meta
-          property="og:description"
-          content="Get in touch with ROSSI CONSTRUCTION for kitchen, bathroom, and home renovations in Bayside, Long Island, Bronx, Manhattan, and Boston."
-        />
-        <meta
-          property="og:image"
-          content="https://www.rossiconstruction.com/images/contact-page.jpg"
-        />
-        <meta property="og:url" content="https://velvety-dieffenbachia-688e02.netlify.app/contact" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "name": "Contact ROSSI CONSTRUCTION",
-            "description": "Contact form for ROSSI CONSTRUCTION, offering home remodeling services in Bayside, Long Island, Bronx, Manhattan, and Boston.",
-            "url": "https://velvety-dieffenbachia-688e02.netlify.app/contact"
-          }
-        `}</script>
-      </Helmet>
+      <Seo
+        title={`Contact | ${SITE.name}`}
+        description={`Contact ${SITE.name} about home remodeling or general contracting across ${SITE.areaText}. Call ${SITE.phoneDisplay} or send a project inquiry online.`}
+        path="/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: `Contact ${SITE.name}`,
+          url: `${SITE.url}/contact`,
+        }}
+      />
       <div className={styles.container}>
         <div className={styles.contactInfo}>
-          <h2>Contact</h2>
-          <h3>What to Expect During Your In-Home Consultation</h3>
+          <h1>Contact</h1>
+          <h2>What to expect during your in-home consultation</h2>
           <p>
-            Contact us for expert home remodeling in Bayside, Long Island, Bronx,
-            Manhattan, and Boston. We've completed many remodeling projects, so
-            we've got it down to a science. Here's what we'll discuss at your
-            consultation:
+            Reach {SITE.name} for remodeling across {SITE.areaText}. At your
+            consultation we will cover:
           </p>
           <ul>
             <li>Your remodeling goals</li>
@@ -175,26 +126,21 @@ function ContactSection() {
             <li>Timeline and cost estimates</li>
           </ul>
           <p>
-            Ready to start? <Link to="/services">Explore our services</Link> or call us at{" "}
-            <a href="tel:+16467533206" aria-label="Call ROSSI CONSTRUCTION at (646) 753-3206">
-              (646) 753-3206
-            </a>.
+            Ready to start? <Link to="/services">Explore our services</Link> or call{" "}
+            <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>.
           </p>
         </div>
 
         {isSubmitted ? (
-          <div className={styles.successMessage} role="alert">
-            <h3>Thank You!</h3>
-            <p>
-              Your message has been sent successfully. We'll get back to you soon
-              to discuss your remodeling project.
-            </p>
+          <div className={styles.successMessage} role="status">
+            <h2>Thank you</h2>
+            <p>Your message has been sent. We will follow up about your project soon.</p>
             <button
+              type="button"
               onClick={() => setIsSubmitted(false)}
               className={styles.submitButton}
-              aria-label="Return to contact form"
             >
-              Send Another Message
+              Send another message
             </button>
           </div>
         ) : (
@@ -202,119 +148,68 @@ function ContactSection() {
             onSubmit={handleSubmit}
             className={styles.form}
             ref={formRef}
-            aria-live="polite"
             tabIndex={-1}
+            noValidate
           >
-            {errors.form && (
+            {errors.form ? (
               <span className={styles.errorMessage} role="alert">
                 {errors.form}
               </span>
-            )}
-            <div className={styles.formGroup}>
-              <label htmlFor="name">Name <span aria-hidden="true">*</span></label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className={errors.name ? styles.inputError : ""}
-                aria-required="true"
-                aria-invalid={errors.name ? "true" : "false"}
-              />
-              {errors.name && (
-                <span className={styles.errorMessage} role="alert">
-                  {errors.name}
-                </span>
-              )}
-            </div>
+            ) : null}
 
-            <div className={styles.formGroup}>
-              <label htmlFor="email">Email <span aria-hidden="true">*</span></label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={errors.email ? styles.inputError : ""}
-                aria-required="true"
-                aria-invalid={errors.email ? "true" : "false"}
-              />
-              {errors.email && (
-                <span className={styles.errorMessage} role="alert">
-                  {errors.email}
-                </span>
-              )}
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="phone">Phone <span aria-hidden="true">*</span></label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className={errors.phone ? styles.inputError : ""}
-                aria-required="true"
-                aria-invalid={errors.phone ? "true" : "false"}
-              />
-              {errors.phone && (
-                <span className={styles.errorMessage} role="alert">
-                  {errors.phone}
-                </span>
-              )}
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="address">Home Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-              />
-            </div>
+            {[
+              ["name", "Name", "text", true],
+              ["email", "Email", "email", true],
+              ["phone", "Phone", "tel", true],
+              ["address", "Home address", "text", false],
+            ].map(([id, label, type, required]) => (
+              <div className={styles.formGroup} key={id}>
+                <label htmlFor={id}>
+                  {label}
+                  {required ? <span aria-hidden="true"> *</span> : null}
+                </label>
+                <input
+                  type={type}
+                  id={id}
+                  name={id}
+                  value={formData[id]}
+                  onChange={handleChange}
+                  className={errors[id] ? styles.inputError : ""}
+                  required={required}
+                  aria-invalid={Boolean(errors[id])}
+                />
+                {errors[id] ? (
+                  <span className={styles.errorMessage} role="alert">
+                    {errors[id]}
+                  </span>
+                ) : null}
+              </div>
+            ))}
 
             <div className={styles.formRow}>
               <div className={styles.formGroup}>
                 <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                />
+                <input id="city" name="city" value={formData.city} onChange={handleChange} />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="state">State</label>
-                <input
-                  type="text"
-                  id="state"
-                  name="state"
-                  value={formData.state}
-                  onChange={handleChange}
-                />
+                <input id="state" name="state" value={formData.state} onChange={handleChange} />
               </div>
               <div className={styles.formGroup}>
-                <label htmlFor="zipcode">Zip Code</label>
+                <label htmlFor="zipcode">Zip code</label>
                 <input
-                  type="text"
                   id="zipcode"
                   name="zipcode"
                   value={formData.zipcode}
                   onChange={handleChange}
                   className={errors.zipcode ? styles.inputError : ""}
-                  aria-invalid={errors.zipcode ? "true" : "false"}
+                  aria-invalid={Boolean(errors.zipcode)}
                 />
-                {errors.zipcode && (
+                {errors.zipcode ? (
                   <span className={styles.errorMessage} role="alert">
                     {errors.zipcode}
                   </span>
-                )}
+                ) : null}
               </div>
             </div>
 
@@ -326,28 +221,27 @@ function ContactSection() {
                 value={formData.message}
                 onChange={handleChange}
                 rows="5"
-              ></textarea>
+              />
             </div>
 
-            {/* hidden from users, visible to bots */}
             <div className={styles.honeypot}>
               <label htmlFor="honeypot">Leave this field empty</label>
               <input
-                type="text"
                 id="honeypot"
                 name="honeypot"
                 value={formData.honeypot}
                 onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
               />
             </div>
 
             <button
               type="submit"
-              className={`${styles.submitButton} ${isSubmitting ? styles.submitting : ""}`}
+              className={styles.submitButton}
               disabled={isSubmitting}
-              aria-disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Sending..." : "Send message"}
             </button>
           </form>
         )}

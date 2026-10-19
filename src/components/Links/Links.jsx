@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import { MapPin, Phone, Clock, Instagram, Send } from "lucide-react";
+import { Clock, MapPin, Send } from "lucide-react";
 import styles from "./Links.module.css";
+import { SITE } from "../../constants/site";
+import { useScrolled } from "../../hooks/useScrolled";
 
 function TopHeader() {
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrolled();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const socials = [
+    {
+      href: SITE.whatsapp,
+      label: `Contact ${SITE.name} on WhatsApp`,
+      icon: <Send size={18} aria-hidden="true" />,
+    },
+  ];
 
   return (
     <div className={`${styles.topHeader} ${scrolled ? styles.scrolled : ""}`}>
+<<<<<<< HEAD
       <Helmet>
         <script type="application/ld+json">{`
           {
@@ -39,22 +39,25 @@ function TopHeader() {
           }
         `}</script>
       </Helmet>
+=======
+>>>>>>> d2a6561 ( refactored the code)
       <div className={styles.container}>
-        {/* Location and Contact Info */}
         <div className={styles.infoGroup}>
           <div className={styles.infoItem}>
             <MapPin size={16} aria-hidden="true" />
+<<<<<<< HEAD
             <span>Serving Maine, New Hampshire, Massachusetts, New York</span>
+=======
+            <span>Serving {SITE.areaText}</span>
+>>>>>>> d2a6561 ( refactored the code)
           </div>
-         
           <div className={styles.infoItem}>
             <Clock size={16} aria-hidden="true" />
-            <span>Mon - Sat: 8AM - 6PM</span>
+            <span>{SITE.hoursDisplay}</span>
           </div>
         </div>
-
-        {/* Social Links */}
         <div className={styles.socialLinks}>
+<<<<<<< HEAD
           {[/*
             {
               href: "https://www.instagram.com/rossiconstruction",
@@ -82,8 +85,11 @@ function TopHeader() {
               icon: <Send size={18} aria-hidden="true" />,
             },
           ].map(({ href, label, icon }, index) => (
+=======
+          {socials.map(({ href, label, icon }) => (
+>>>>>>> d2a6561 ( refactored the code)
             <a
-              key={index}
+              key={href}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
