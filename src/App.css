@@ -1,23 +1,23 @@
 :root {
   color-scheme: light;
-  --bg: #f6f3ef;
+  --bg: #f5f2ed;
   --bg-elevated: #ffffff;
-  --bg-muted: #efeae4;
-  --text: #1b1a1a;
-  --text-muted: #5c5654;
-  --accent: #8f1932;
-  --accent-hover: #6e1226;
-  --header-bg: #1b1a1a;
-  --header-text: #f8f1f1;
+  --bg-muted: #eee9e0;
+  --text: #242220;
+  --text-muted: #69635c;
+  --accent: #9b3340;
+  --accent-hover: #76232e;
+  --header-bg: #171817;
+  --header-text: #f8f5ef;
   --header-hover: rgba(255, 255, 255, 0.1);
   --header-border: rgba(255, 255, 255, 0.14);
-  --header-offset: 90px;
-  --border: rgba(27, 26, 26, 0.1);
+  --header-offset: 104px;
+  --border: rgba(36, 34, 32, 0.12);
   --card-bg: #ffffff;
   --card-hover: #f8ecee;
-  --footer-bg: #efeae4;
-  --footer-text: #5c5654;
-  --shadow: 0 8px 24px rgba(27, 26, 26, 0.08);
+  --footer-bg: #eee9e0;
+  --footer-text: #69635c;
+  --shadow: 0 12px 34px rgba(36, 34, 32, 0.08);
   --hero-overlay: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
   --input-bg: #f9f7f4;
   --error: #b42318;
@@ -30,8 +30,8 @@
   --bg-muted: #242222;
   --text: #f5f2ef;
   --text-muted: #c4beba;
-  --accent: #d4455e;
-  --accent-hover: #e85d74;
+  --accent: #d8737d;
+  --accent-hover: #ec9098;
   --header-bg: #0e0d0d;
   --header-text: #f8f1f1;
   --header-hover: rgba(255, 255, 255, 0.1);
@@ -88,7 +88,7 @@ p {
 h1,
 h2 {
   font-family: "Rubik", sans-serif;
-  text-transform: uppercase;
+  letter-spacing: -0.025em;
 }
 
 h3,
@@ -98,6 +98,11 @@ p {
 
 a {
   color: var(--accent);
+}
+
+::selection {
+  color: #fff;
+  background: var(--accent);
 }
 
 button,

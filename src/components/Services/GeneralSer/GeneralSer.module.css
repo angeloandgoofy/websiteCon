@@ -1,113 +1,104 @@
 .servicesContainer {
-  padding: 2rem 2rem 4rem;
-  max-width: 1400px;
+  padding: clamp(3rem, 6vw, 5.5rem) 1.5rem 4rem;
+  max-width: 1340px;
   margin: 0 auto;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
+.header { text-align: center; margin: 0 auto 3.5rem; }
 
 .title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 auto 1rem;
+  max-width: 920px;
+  text-transform: none;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.08rem;
   color: var(--text-muted);
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
 .serviceCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--card-bg);
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 2rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-.serviceCard:hover {
-  transform: translateY(-6px);
-}
+.serviceCard:hover { transform: translateY(-4px); border-color: var(--accent); }
 
 .serviceIcon {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 1.3rem;
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-elevated));
+  font-size: 1.7rem;
 }
 
 .serviceTitle {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  font-size: 1.32rem;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
   text-transform: none;
 }
 
 .serviceDescription,
-.featureItem {
-  color: var(--text-muted);
-  line-height: 1.6;
-}
+.featureItem { color: var(--text-muted); line-height: 1.65; font-size: 0.94rem; }
 
-.featuresList {
-  margin: 1.5rem 0;
-  padding-left: 1.1rem;
-}
+.featuresList { margin: 1.2rem 0 1.6rem; padding-left: 1.1rem; }
+.featureItem { margin-bottom: 0.55rem; padding-left: 0.15rem; }
+.featureItem::marker { color: var(--accent); }
 
-.featureItem {
-  margin-bottom: 0.75rem;
-}
+.serviceLinks { display: flex; gap: 1rem; align-items: center; margin-top: auto; padding-top: 0.4rem; }
+.contactLink, .learnMore, .ctaButton { font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 
-.serviceLinks {
-  display: flex;
-  gap: 1rem;
+.contactLink,
+.ctaButton {
+  display: inline-flex;
   align-items: center;
-}
-
-.contactLink,
-.learnMore,
-.ctaButton {
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.contactLink,
-.ctaButton {
+  justify-content: center;
   background: var(--accent);
   color: #fff;
-  padding: 0.7rem 1.1rem;
-  border-radius: 8px;
+  padding: 0.8rem 1.15rem;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
 }
 
-.learnMore {
-  color: var(--accent);
-}
+.learnMore { color: var(--accent); }
+.learnMore:hover { color: var(--accent-hover); }
 
 .callToAction {
   text-align: center;
-  padding: 4rem 1rem 1rem;
+  margin-top: 3.5rem;
+  padding: 3.5rem 1rem;
+  background: var(--bg-muted);
 }
 
-.ctaTitle {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+.ctaTitle { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 0.8rem; text-transform: none; }
+.ctaText { color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.7; }
+.ctaButton:hover, .contactLink:hover { background: var(--accent-hover); }
 
-.ctaText {
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-}
-
-.ctaButton:hover,
-.contactLink:hover {
-  background: var(--accent-hover);
+@media (max-width: 600px) {
+  .servicesContainer { padding: 2.5rem 1rem 3rem; }
+  .header { margin-bottom: 2.2rem; }
+  .serviceCard { padding: 1.5rem; }
+  .serviceLinks { flex-wrap: wrap; }
 }

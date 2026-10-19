@@ -1,19 +1,19 @@
 .topHeader {
   position: fixed;
-  top: 60px;
+  top: 70px;
   left: 0;
   right: 0;
-  background-color: color-mix(in srgb, var(--header-bg) 70%, transparent);
+  background-color: color-mix(in srgb, var(--header-bg) 94%, transparent);
   transition: background-color 0.3s ease, color 0.3s ease;
   z-index: 500;
   color: var(--header-text);
-  height: 30px;
+  height: 34px;
 }
 
 .scrolled {
-  background-color: var(--bg-elevated);
-  box-shadow: var(--shadow);
-  color: var(--text);
+  background-color: var(--header-bg);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  color: var(--header-text);
 }
 
 .container {
@@ -56,22 +56,22 @@
   transition: color 0.2s ease;
 }
 
-.scrolled .socialLink {
-  color: var(--text);
-}
-
 .socialLink:hover {
   color: var(--accent);
 }
 
 @media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+  .infoGroup { gap: 0.6rem; }
+  .infoItem { font-size: 0.67rem; }
+  .infoItem:nth-child(2) { display: none; }
   .infoItem span {
     display: none;
   }
 
   .infoItem:first-child span {
     display: inline;
-    max-width: 180px;
+    max-width: min(58vw, 245px);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

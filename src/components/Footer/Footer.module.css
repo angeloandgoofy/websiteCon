@@ -1,74 +1,54 @@
 .footer {
   margin-top: auto;
-  padding: 2.5rem 1.5rem 1.5rem;
-  background: var(--footer-bg);
-  color: var(--footer-text);
-  border-top: 1px solid var(--border);
+  padding: 3rem 1.5rem 1.5rem;
+  background: var(--header-bg);
+  color: var(--header-text);
 }
 
 .inner {
-  max-width: 1400px;
+  max-width: 1260px;
   margin: 0 auto;
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2rem;
+  grid-template-columns: 1.4fr 0.7fr 0.9fr;
+  align-items: start;
 }
 
 .brand {
   font-family: "Rubik", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--text);
-  margin: 0 0 0.4rem;
+  letter-spacing: 0.1em;
+  color: var(--header-text);
+  margin: 0 0 0.7rem;
 }
 
 .copy,
 .legal,
-.contact p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
+.contact p { margin: 0; color: rgba(248, 245, 239, 0.65); font-size: 0.86rem; line-height: 1.7; }
 
-.links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+.links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.links a { color: var(--header-text); text-decoration: none; font-size: 0.88rem; transition: color 0.2s ease; }
+.links a:hover { color: #e4c28e; }
 
-.links a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.links a:hover {
-  color: var(--accent);
-}
-
-.contact {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.contact a {
-  color: var(--text);
-  font-weight: 600;
-  text-decoration: none;
-}
+.contact { display: flex; flex-direction: column; gap: 0.4rem; }
+.contact a { color: #e4c28e; font-weight: 700; text-decoration: none; }
 
 .legal {
-  max-width: 1400px;
+  max-width: 1260px;
   margin: 2rem auto 0;
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.78rem;
 }
 
-@media (max-width: 768px) {
-  .inner {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 720px) {
+  .inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .inner > div:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 420px) {
+  .footer { padding: 2.5rem 1.1rem 1.2rem; }
+  .inner { grid-template-columns: 1fr; gap: 1.25rem; }
+  .inner > div:first-child { grid-column: auto; }
 }

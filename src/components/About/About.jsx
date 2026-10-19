@@ -48,6 +48,7 @@ function AboutUs() {
     <section id="about-us" className={styles.aboutUsSection} ref={ref}>
       <div className={styles.container}>
         <div className={styles.content}>
+          <p className={styles.eyebrow}>Who we are</p>
           <h2 className={styles.title}>About Us</h2>
           <p className={styles.subtitle}>Over 12 years of excellence in home remodeling</p>
           <p className={styles.description}>
@@ -74,6 +75,10 @@ function AboutUs() {
             alt={`${SITE.name} remodeling craftsmanship`}
             className={styles.image}
           />
+          <div className={styles.imageCaption}>
+            <span>Rossi Brothers Contracting</span>
+            <span>Craftsmanship, from the ground up</span>
+          </div>
         </div>
       </div>
     </section>

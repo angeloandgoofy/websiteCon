@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./HomePage.module.css";
 import front1 from "../../assets/main.webp";
 import front2 from "../../assets/main2.webp";
@@ -9,8 +10,8 @@ import Seo from "../../components/Seo/Seo";
 import { SITE } from "../../constants/site";
 
 const HERO_IMAGES = [
-  { src: front1, alt: "Finished kitchen remodeling by Rossi Brothers Contracting" },
-  { src: front2, alt: "Bathroom renovation completed by Rossi Brothers Contracting" },
+  { src: front1, alt: "Custom deck steps and railing built by Rossi Brothers Contracting" },
+  { src: front2, alt: "Outdoor deck and covered patio project by Rossi Brothers Contracting" },
 ];
 
 function HomePage() {
@@ -50,7 +51,7 @@ function HomePage() {
         description={SITE.defaultDescription}
         path="/"
       />
-      <section id="home" className={styles.homeSection} aria-label="Featured remodeling work">
+      <section id="home" className={styles.homeSection} aria-label="Featured contracting work">
         <div className={styles.imageContainer}>
           <img
             src={active.src}
@@ -66,7 +67,7 @@ function HomePage() {
             onClick={handlePrevImage}
             aria-label="Previous image"
           >
-            ‹
+            <ChevronLeft size={22} aria-hidden="true" />
           </button>
           <button
             type="button"
@@ -74,7 +75,7 @@ function HomePage() {
             onClick={handleNextImage}
             aria-label="Next image"
           >
-            ›
+            <ChevronRight size={22} aria-hidden="true" />
           </button>
 
           <div className={styles.indicators} role="tablist" aria-label="Hero images">
@@ -91,18 +92,29 @@ function HomePage() {
           </div>
 
           <div className={styles.content}>
-            <h1>Home Remodeling &amp; General Contracting</h1>
+            <p className={styles.eyebrow}><span /> ROSSI BROTHERS CONTRACTING</p>
+            <h1>Home remodeling.<br />Built to last.</h1>
             <p className={styles.subheading}>
-              Kitchen, bathroom, and whole-home renovations across {SITE.areaText}.
+              Home remodeling and general contracting across {SITE.areaText}.
             </p>
+            <div className={styles.heroActions}>
+              <NavLink to="/contact" className={styles.primaryButton}>
+                Plan your project <ArrowRight size={17} aria-hidden="true" />
+              </NavLink>
+              <NavLink to="/services" className={styles.secondaryButton}>Explore our services</NavLink>
+            </div>
+          </div>
+
+          <div className={styles.projectNote}>
+            <span className={styles.projectNoteIcon}><Check size={16} aria-hidden="true" /></span>
+            <span>Residential renovations &amp; contracting</span>
           </div>
         </div>
 
-        <div className={styles.ctaSection}>
-          <p className={styles.ctaText}>Schedule your free consultation</p>
-          <NavLink to="/contact" className={styles.ctaButton}>
-            Contact Us
-          </NavLink>
+        <div className={styles.serviceRibbon} aria-label="Our services">
+          <span>Home remodeling</span><i aria-hidden="true" />
+          <span>General contracting</span><i aria-hidden="true" />
+          <span>Serving {SITE.areaText}</span>
         </div>
         <RemodelProcess />
         <About />

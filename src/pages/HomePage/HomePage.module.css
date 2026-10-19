@@ -8,8 +8,11 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  height: 70vh;
+  min-height: 620px;
+  height: min(76vh, 820px);
   overflow: hidden;
+  isolation: isolate;
+  background: #1b1a1a;
 }
 
 .home {
@@ -18,153 +21,259 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  object-position: center 58%;
+  transition: opacity 0.5s ease-in-out, transform 0.8s ease-in-out;
   background-color: #1b1a1a;
 }
 
 .transitioning {
-  opacity: 0.8;
-  transform: scale(1.02);
+  opacity: 0.78;
+  transform: scale(1.025);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: var(--hero-overlay);
+  background: linear-gradient(90deg, rgba(13, 15, 16, 0.86) 0%, rgba(13, 15, 16, 0.66) 42%, rgba(13, 15, 16, 0.12) 100%),
+    linear-gradient(0deg, rgba(13, 15, 16, 0.3), transparent 42%);
+  z-index: 1;
 }
 
 .content {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 90%;
-  max-width: 1200px;
+  left: max(7vw, calc((100vw - 1280px) / 2));
+  transform: translateY(-50%);
+  text-align: left;
+  width: min(680px, 74%);
   z-index: 2;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.25rem;
+  color: #f1d4a9;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.eyebrow span {
+  width: 30px;
+  height: 1px;
+  background: #d7ad72;
 }
 
 .content h1,
 .subheading {
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
 }
 
 .content h1 {
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(3rem, 6.4vw, 6.2rem);
   font-weight: 700;
-  margin-bottom: 1rem;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-transform: none;
+  margin: 0 0 1.25rem;
 }
 
 .subheading {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 570px;
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 0 1.4rem;
+  border-radius: 3px;
+  font-size: 0.93rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.primaryButton {
+  background: #a93a44;
+  color: #fff;
+}
+
+.primaryButton:hover {
+  background: #8f2633;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  color: #fff;
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.projectNote {
+  position: absolute;
+  right: max(7vw, calc((100vw - 1280px) / 2));
+  bottom: 5.3rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  background: rgba(17, 19, 19, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  font-size: 0.82rem;
+  letter-spacing: 0.015em;
+}
+
+.projectNoteIcon {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #d3ad76;
+  color: #25211d;
 }
 
 .navButton {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.13);
   color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 50%;
-  font-size: 30px;
   cursor: pointer;
   z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: background-color 0.2s ease;
 }
 
 .navButton:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.28);
 }
 
-.prevButton {
-  left: 30px;
-}
-
-.nextButton {
-  right: 30px;
-}
+.prevButton { left: 1.5rem; }
+.nextButton { right: 1.5rem; }
 
 .indicators {
   position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 2rem;
+  left: max(7vw, calc((100vw - 1280px) / 2));
   display: flex;
-  gap: 12px;
+  gap: 0.65rem;
   z-index: 3;
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
+  width: 28px;
+  height: 4px;
+  padding: 0;
+  border: 0;
+  background: rgba(255, 255, 255, 0.48);
   cursor: pointer;
 }
 
 .activeIndicator {
-  background: white;
-  transform: scale(1.2);
+  background: #e8c28e;
 }
 
-.ctaSection {
-  padding: 2rem;
-  text-align: center;
-  background-color: var(--bg-elevated);
+.serviceRibbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
   width: 100%;
-}
-
-.ctaText {
+  padding: 1.45rem 2rem;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
   color: var(--text);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
-.ctaButton {
-  display: inline-block;
-  padding: 14px 32px;
-  background-color: var(--accent);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-.ctaButton:hover {
-  background-color: var(--accent-hover);
+.serviceRibbon i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 @media (max-width: 768px) {
   .imageContainer {
-    height: 60vh;
+    min-height: 620px;
+    height: min(76svh, 760px);
   }
 
-  .navButton {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
+  .overlay {
+    background: linear-gradient(90deg, rgba(13, 15, 16, 0.8), rgba(13, 15, 16, 0.37)),
+      linear-gradient(0deg, rgba(13, 15, 16, 0.25), transparent 55%);
   }
 
-  .prevButton {
-    left: 15px;
+  .content {
+    left: 7%;
+    top: 47%;
+    width: 82%;
   }
 
-  .nextButton {
-    right: 15px;
+  .content h1 {
+    font-size: clamp(3.1rem, 11vw, 5.2rem);
   }
+
+  .projectNote {
+    right: 7%;
+    bottom: 4.4rem;
+    font-size: 0.72rem;
+  }
+
+  .indicators {
+    left: 7%;
+    bottom: 1.6rem;
+  }
+
+  .navButton { width: 40px; height: 40px; }
+  .prevButton { left: 0.8rem; }
+  .nextButton { right: 0.8rem; }
 }
 
 @media (max-width: 480px) {
-  .imageContainer {
-    height: 50vh;
-  }
+  .imageContainer { min-height: 590px; }
+  .content { width: 84%; top: 45%; }
+  .eyebrow { font-size: 0.66rem; letter-spacing: 0.13em; }
+  .content h1 { font-size: clamp(2.8rem, 13vw, 4rem); }
+  .subheading { font-size: 0.98rem; }
+  .heroActions { gap: 0.65rem; margin-top: 1.5rem; }
+  .primaryButton, .secondaryButton { min-height: 48px; padding: 0 0.9rem; font-size: 0.82rem; }
+  .projectNote { left: 7%; right: auto; bottom: 4.2rem; }
+  .serviceRibbon { gap: 0.65rem; padding: 1.1rem 1rem; font-size: 0.68rem; }
+  .serviceRibbon span:last-child { flex-basis: 100%; text-align: center; }
+  .serviceRibbon i:nth-of-type(2) { display: none; }
 }

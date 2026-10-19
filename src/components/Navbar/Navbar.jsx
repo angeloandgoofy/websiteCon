@@ -23,7 +23,10 @@ function Navbar() {
       <div className={styles.navContent}>
         <NavLink to="/" className={styles.logoLink}>
           <img className={styles.mark} src="/logo.svg" alt="" aria-hidden="true" />
-          <span className={styles.brand}>{SITE.name}</span>
+          <span className={styles.brand}>
+            <span>Rossi Brothers</span>
+            <small>Contracting</small>
+          </span>
         </NavLink>
 
         <button
